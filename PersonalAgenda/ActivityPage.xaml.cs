@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonalAgenda.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,4 +56,5 @@ namespace PersonalAgenda
                 await Navigation.PopAsync();
             }
         }
+    }
 }

@@ -5,25 +5,21 @@
 
     <ContentPage.Content xmlns:local="clr-namespace:PersonalAgenda">
         <StackLayout Margin="20">
-    <Editor Placeholder="Enter your note"
+            <Editor Placeholder="Enter your note"
             Text="{Binding Text}"
             HeightRequest="100" >
-            <Editor.Behaviors>
-                <local:ValidationBehaviour />
-            </Editor.Behaviors>
-    </Editor>
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour />
+                </Editor.Behaviors>
+            </Editor>
             <Button Text="Choose Activity" Clicked="OnChooseButtonClicked"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Text="Save"
-Clicked="OnSaveButtonClicked" />
-                <Button Grid.Column="1"
-Text="Delete"
-
-Clicked="OnDeleteButtonClicked"/>
+                <Button Text="Save" Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteButtonClicked"/>
                 <ListView Grid.Row="1" Grid.ColumnSpan="2" x:Name="listView" Margin="20">
                     <ListView.ItemTemplate>
                         <DataTemplate>

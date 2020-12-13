@@ -27,17 +27,18 @@ namespace PersonalAgenda.Data
             .Where(i => i.ID == id)
             .FirstOrDefaultAsync();
         }
-        //public Task<int> SaveNoteAsync(Agenda note)
-        //{
-        //    if (note.ID != 0)
-        //    {
-        //        return _database.UpdateAsync(note);
-        //    }
-        //    else
-        //    {
-        //        return _database.InsertAsync(note);
-        //    }
-        //}
+        public Task<int> SaveNoteAsync(Agenda note)
+        {
+            if (note.ID != 0)
+            {
+                return _database.UpdateAsync(note);
+            }
+            else
+            {
+                return _database.InsertAsync(note);
+            }
+        }
+
         public Task<int> SaveActivityAsync(Activity activity)
         {
             if (activity.ID != 0)
@@ -49,10 +50,16 @@ namespace PersonalAgenda.Data
                 return _database.InsertAsync(activity);
             }
         }
-        //public Task<int> DeleteNoteAsync(Agenda note)
-        //{
-        //    return _database.DeleteAsync(note);
-        //}
+
+        public Task<List<Activity>> GetActivitiesAsync()
+        {
+            return _database.Table<Activity>().ToListAsync();
+        }
+
+        public Task<int> DeleteNoteAsync(Agenda note)
+        {
+            return _database.DeleteAsync(note);
+        }
 
         public Task<int> DeleteActivityAsync(Activity activity)
         {
